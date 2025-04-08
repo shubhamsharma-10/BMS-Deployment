@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json())
 app.get("/", (req, res) => {
     res.json({
-        msg: "Hello world!"
+        msg: "Hello world! This is deployed"
     })
 })
 
