@@ -10,6 +10,10 @@ jobs:
     steps:
       - run:  |
           echo "${{secrets.DEV_SECRET_KEY}}" &> ~/ssh_key
+          mkdir -p /home/runner/.ssh
+          ls /home/runner/.ssh
+          touch /home/runner/.ssh/known_hosts
+          echo "{{KNOWN_HOST_SECRET_KEY}}" &> /home/runner/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@51.20.143.182
           cd BMS-Deployment/ && git pull
           pnpm install
