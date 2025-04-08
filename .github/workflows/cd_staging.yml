@@ -10,7 +10,7 @@ jobs:
     steps:
       - run:  |
           echo "${{secrets.DEV_SECRET_KEY}}" &> ~/ssh_key
-          ssh -i ~/ssh_key ubuntu@
+          ssh -i ~/ssh_key ubuntu@51.20.143.182
           cd BMS-Deployment/ && git pull
           pnpm install
           pnpm run build
