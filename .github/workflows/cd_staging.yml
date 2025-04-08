@@ -13,7 +13,7 @@ jobs:
           mkdir -p /home/runner/.ssh
           ls /home/runner/.ssh
           touch /home/runner/.ssh/known_hosts
-          echo "{{secrets.KNOWN_HOST_SECRET_KEY}}" &> /home/runner/.ssh/known_hosts
+          echo "${{secrets.KNOWN_HOST_SECRET_KEY}}" &> /home/runner/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@51.20.143.182
           cd BMS-Deployment/ && git pull
           pnpm install
